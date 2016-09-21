@@ -37,7 +37,7 @@ public class Client implements Serializable {
     private String adresse;
     
     @OneToMany(mappedBy = "client_id" )
-    private List<Client> client = new ArrayList<>();
+    private List<Commande> commandes = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -79,14 +79,15 @@ public class Client implements Serializable {
         this.adresse = adresse;
     }
 
-    public List<Client> getClient() {
-        return client;
+    public List<Commande> getCommandes() {
+        return commandes;
     }
 
-    public void setClient(List<Client> client) {
-        this.client = client;
+    public void setCommandes(List<Commande> commandes) {
+        this.commandes = commandes;
     }
 
+  
     @Override
     public int hashCode() {
         int hash = 0;

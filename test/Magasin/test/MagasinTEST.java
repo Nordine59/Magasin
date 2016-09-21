@@ -31,16 +31,14 @@ public class MagasinTEST {
         }
 
         Client client = em.find(Client.class, 1);
-        for (Commande c : client.getClient()) {
+        for (Commande c : client.getCommandes()) {
             System.out.println(c);
 
         }
 
     }
-
 }
-
-public void test() {
+    public void test() {
 
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
 

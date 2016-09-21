@@ -45,6 +45,10 @@ public class Commande implements Serializable {
     private String moyenPaiement;
     @Enumerated(EnumType.STRING)
     private Statut statut;
+    
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 
     public Adresse getAdresseLivraison() {
         return adresseLivraison;
@@ -130,9 +134,6 @@ public class Commande implements Serializable {
     
     
     
-    @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
     
     
     
