@@ -6,10 +6,13 @@
 package magasin.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -20,6 +23,14 @@ public class Categorie implements Serializable {
 
     public String getNom() {
         return nom;
+    }
+
+    public List<Produit> getProduits() {
+        return produits;
+    }
+
+    public void setProduits(List<Produit> produits) {
+        this.produits = produits;
     }
 
     public void setNom(String nom) {
@@ -33,7 +44,13 @@ public class Categorie implements Serializable {
     
     
     private String nom;
-
+    @OneToMany(mappedBy = "categorie")//one to many mappe sur la propriete categorie de produit private Categorie categorie. Mappe la propriete reciproque aux 2 tables
+    private List<Produit> produits = new ArrayList<>();
+    
+    
+    
+    
+    
     public Long getId() {
         return id;
     }

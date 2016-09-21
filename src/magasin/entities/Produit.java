@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -27,10 +29,58 @@ public class Produit implements Serializable {
     private String titre;
     
     private String description;
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPrix() {
+        return prix;
+    }
+
+    public void setPrix(String prix) {
+        this.prix = prix;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
     
     private String prix;
     
     private String stock;
+    
+    
+    
+    @JoinColumn(name = "categorie_id")//joint sur la clé primaire et etrangere categorie id ajoutée pour le test via les tables
+    @ManyToOne// déf type de jointure
+    private Categorie categorie;
+    
+    
     
 
     public Long getId() {

@@ -6,10 +6,14 @@
 package magasin.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -32,8 +36,8 @@ public class Client implements Serializable {
     
     private String adresse;
     
-    
-    
+    @OneToMany(mappedBy = "client_id" )
+    private List<Client> client = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -41,6 +45,46 @@ public class Client implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public List<Client> getClient() {
+        return client;
+    }
+
+    public void setClient(List<Client> client) {
+        this.client = client;
     }
 
     @Override
