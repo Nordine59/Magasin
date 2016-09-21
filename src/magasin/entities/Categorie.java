@@ -18,6 +18,14 @@ import javax.persistence.Id;
 @Entity
 public class Categorie implements Serializable {
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
